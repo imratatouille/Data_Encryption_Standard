@@ -65,11 +65,8 @@ s_boxes = [
 ]
 
 def s_box(input_val, s_box_num):
-    row = int(input_val[0] + input_val[5], 2)
-    col = int(input_val[1:5], 2)
-
-    # S-Box에서 값 가져오기
+    row = input_val[0] + input_val[5]
+    col = input_val[1] + input_val[2] + input_val[3] + input_val[4]
     s_box_val = s_boxes[s_box_num][row][col]
 
-    # 4비트로 변환하여 반환
     return format(s_box_val, '04b')
