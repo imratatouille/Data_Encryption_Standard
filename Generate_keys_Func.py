@@ -1,4 +1,4 @@
-from String_To_binary_Func import string_to_binary
+from String_To_Binary_Func import string_to_binary
 
 PC_1_table = [
     [57, 49, 41, 33, 25, 17, 9],
