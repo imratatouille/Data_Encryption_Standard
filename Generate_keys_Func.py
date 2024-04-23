@@ -39,28 +39,28 @@ def generate_subkeys(key):
     compressed_key = [key[i-1] for row in PC_1_table for i in row]
     left_half = compressed_key[:28]
     right_half = compressed_key[28:]
-    subkeys = []
     allsubkey = []
-    for i in range(16):
+    for j in range(16):
         left_half = left_half[1:] + [left_half[0]]
         right_half = right_half[1:] + [right_half[0]]
-        subkey = [left_half[row-row] for row in PC_2_table[i-i]] + [right_half[row-row] for row in PC_2_table[i-i]]
-        subkeys += subkey
-        allsubkey.append(subkeys[:])
+        shift_bits = left_half + right_half
+        subkey = [shift_bits[j-1] for row in PC_2_table for j in row]
+        allsubkey.append(subkey)
+        
     return allsubkey
 
-key = "thisis64"
-bin_key = string_to_binary(key)
+# key = "thisis64"
+# bin_key = string_to_binary(key)
+# all_subkeys = generate_subkeys(bin_key)
 
-if len(bin_key) == 64:
-    print(" == 64")
-elif len(bin_key) < 64:
-    while len(bin_key) < 64:
-        bin_key.append(0)
-    print(" < 64")
-elif len(bin_key) > 64:
-    print(" > 64 ")
-    
-all_subkeys = generate_subkeys(bin_key)
+# if len(bin_key) == 64:
+#     print(" == 64")
+# elif len(bin_key) < 64:
+#     while len(bin_key) < 64:
+#         bin_key.append(0)
+#     print(" < 64")
+# elif len(bin_key) > 64:
+#     print(" > 64 ")
 
-print(len(all_subkeys))
+# print(all_subkeys)
+# print(len(all_subkeys))

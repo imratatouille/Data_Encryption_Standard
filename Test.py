@@ -1,6 +1,11 @@
 from Initial_Permutation_Func import initial_permutation, Reverse_permutation
 from String_To_binary_Func import string_to_binary
+from Generate_keys_Func import generate_subkeys
 from Round_Func import Round
+
+#subkey 생성
+key_change_to_bin = string_to_binary("thisis64")
+subkeys = generate_subkeys(key=key_change_to_bin)
 
 # 문자열 받기
 Plain_Text = input("아무거나 적어주세요: ")
@@ -32,22 +37,22 @@ initial_permutated_PT = initial_permutation(bin_list)
 Left_bits = initial_permutated_PT[:32]
 Right_bits = initial_permutated_PT[32:]
 
-L_round1, R_round1 = Round(Left_bits, Right_bits)
-L_round2, R_round2 = Round(L_round1, R_round1)
-L_round3, R_round3 = Round(L_round2, R_round2)
-L_round4, R_round4 = Round(L_round3, R_round3)
-L_round5, R_round5 = Round(L_round4, R_round4)
-L_round6, R_round6 = Round(L_round5, R_round5)
-L_round7, R_round7 = Round(L_round6, R_round6)
-L_round8, R_round8 = Round(L_round7, R_round7)
-L_round9, R_round9 = Round(L_round8, R_round8)
-L_round10, R_round10 = Round(L_round9, R_round9)
-L_round11, R_round11 = Round(L_round10, R_round10)
-L_round12, R_round12 = Round(L_round11, R_round11)
-L_round13, R_round13 = Round(L_round12, R_round12)
-L_round14, R_round14 = Round(L_round13, R_round13)
-L_round15, R_round15 = Round(L_round14, R_round14)
-L_round16, R_round16 = Round(L_round15, R_round15)
+L_round1, R_round1 = Round(Left_bits, Right_bits, subkeys[0])
+L_round2, R_round2 = Round(L_round1, R_round1, subkeys[1])
+L_round3, R_round3 = Round(L_round2, R_round2, subkeys[2])
+L_round4, R_round4 = Round(L_round3, R_round3, subkeys[3])
+L_round5, R_round5 = Round(L_round4, R_round4, subkeys[4])
+L_round6, R_round6 = Round(L_round5, R_round5, subkeys[5])
+L_round7, R_round7 = Round(L_round6, R_round6, subkeys[6])
+L_round8, R_round8 = Round(L_round7, R_round7, subkeys[7])
+L_round9, R_round9 = Round(L_round8, R_round8, subkeys[8])
+L_round10, R_round10 = Round(L_round9, R_round9, subkeys[9])
+L_round11, R_round11 = Round(L_round10, R_round10, subkeys[10])
+L_round12, R_round12 = Round(L_round11, R_round11, subkeys[11])
+L_round13, R_round13 = Round(L_round12, R_round12, subkeys[12])
+L_round14, R_round14 = Round(L_round13, R_round13, subkeys[13])
+L_round15, R_round15 = Round(L_round14, R_round14, subkeys[14])
+L_round16, R_round16 = Round(L_round15, R_round15, subkeys[15])
 print(len(L_round16), len(R_round16))
 
 Plus_LR = L_round16 + R_round16
