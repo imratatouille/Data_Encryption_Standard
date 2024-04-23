@@ -37,7 +37,7 @@ Clone_Left_Bits = Left_bits
 while len(Clone_Right_Bits) < 48:
     Clone_Right_Bits.append(0)
     
-key = "dqwdqw"
+key = ""
 bin_key = string_to_binary(key)
 
 if len(bin_key) == 64:
@@ -48,7 +48,7 @@ elif len(bin_key) < 64:
 
 subkey = generate_subkeys(bin_key)    
 
-XOR_Right_Key = [a ^ b for a, b in zip(Clone_Right_Bits, subkey)]
+XOR_Right_Key = [a ^ b for a, b in zip(Clone_Right_Bits, subkey[0])]
 
 sub_lists = [XOR_Right_Key[i:i+6] for i in range(0, len(XOR_Right_Key), 6)]
 
@@ -67,4 +67,4 @@ XOR_Left_Key = [a ^ b for a, b in zip(Clone_Left_Bits, Permutation_result)]
 new_Left_Bits = Right_bits
 new_Right_Bits = XOR_Left_Key
 
-print(new_Left_Bits,new_Right_Bits)
+print(len(new_Left_Bits),len(new_Right_Bits))

@@ -9,8 +9,25 @@ initial_permutation_table = [
     63, 55, 47, 39, 31, 23, 15, 7
 ]
 
+Reverse_initial_permutation_table = [
+    40, 8, 48, 16, 56, 24, 64, 32,
+    39, 7, 47, 15, 55, 23, 63, 31,
+    38, 6, 46, 14, 54, 22, 62, 30,
+    37, 5, 45, 13, 53, 21, 61, 29,
+    36, 4, 44, 12, 52, 20, 60, 28,
+    35, 3, 43, 11, 51, 19, 59, 27,
+    34, 2, 42, 10, 50, 18, 58, 26,
+    33, 1, 41, 9, 49, 17, 57, 25
+]
+
 def initial_permutation(block):
     permuted_block = [None] * 64
     for i in range(64):
         permuted_block[i] = block[initial_permutation_table[i] - 1]
     return permuted_block
+
+def Reverse_permutation(bits):
+    Reverse_permuted = [None] * 64
+    for i in range(64):
+        Reverse_permuted[i] = bits[initial_permutation_table[i] - 1]
+    return Reverse_permuted

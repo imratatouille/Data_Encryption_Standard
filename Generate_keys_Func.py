@@ -22,27 +22,45 @@ PC_2_table = [
     [46, 42, 50, 36, 29, 32]
 ]
 
+# def generate_subkeys(key):
+#     compressed_key = [key[i-1] for row in PC_1_table for i in row]
+#     left_half = compressed_key[:28]
+#     right_half = compressed_key[28:]
+#     subkeys = []
+#     for i in range(4):
+#         left_half = left_half[1:] + [left_half[0]]
+#         right_half = right_half[1:] + [right_half[0]]
+#         subkey = [left_half[row-1] for row in PC_2_table[i]] + [right_half[row-1] for row in PC_2_table[i]]
+#         # subkeys.append(subkey)
+#         subkeys += subkey
+#     return subkeys
+
 def generate_subkeys(key):
     compressed_key = [key[i-1] for row in PC_1_table for i in row]
     left_half = compressed_key[:28]
     right_half = compressed_key[28:]
     subkeys = []
-    for i in range(4):
+    allsubkey = []
+    for i in range(16):
         left_half = left_half[1:] + [left_half[0]]
         right_half = right_half[1:] + [right_half[0]]
-        subkey = [left_half[row-1] for row in PC_2_table[i]] + [right_half[row-1] for row in PC_2_table[i]]
-        # subkeys.append(subkey)
+        subkey = [left_half[row-row] for row in PC_2_table[i-i]] + [right_half[row-row] for row in PC_2_table[i-i]]
         subkeys += subkey
-    return subkeys
+        allsubkey.append(subkeys[:])
+    return allsubkey
 
-# key = input("키를 입력해주세요")
-# key = "dqwdqw"
-# bin_key = string_to_binary(key)
+key = "thisis64"
+bin_key = string_to_binary(key)
 
-# if len(bin_key) == 64:
-#     pass
-# elif len(bin_key) < 64:
-#     while len(bin_key) < 64:
-#         bin_key.append(0)
+if len(bin_key) == 64:
+    print(" == 64")
+elif len(bin_key) < 64:
+    while len(bin_key) < 64:
+        bin_key.append(0)
+    print(" < 64")
+elif len(bin_key) > 64:
+    print(" > 64 ")
+    
+all_subkeys = generate_subkeys(bin_key)
 
-# key = generate_subkeys(bin_key)
+print(len(all_subkeys))
