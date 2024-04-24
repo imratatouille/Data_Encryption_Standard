@@ -1,8 +1,8 @@
-from Permutation_Func import initial_permutation, inverse_permutation
-from String_To_Binary_Func import string_to_binary
-from Generate_keys_Func import generate_subkeys
-from Round_Func import Round
-from Binary_To_Text_Func import binary_to_text
+from Functions.Permutation_Func import initial_permutation, inverse_permutation
+from Functions.String_To_Binary_Func import string_to_binary
+from Functions.Generate_keys_Func import generate_subkeys
+from Functions.Round_Func import Round
+from Functions.Binary_To_Text_Func import binary_to_text
 
 key_change_to_bin = string_to_binary("thisis64")
 subkeys = generate_subkeys(key=key_change_to_bin)
