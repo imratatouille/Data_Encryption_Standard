@@ -7,10 +7,11 @@ def binary_to_text(Ciper_binary):
         byte = Ciper_binary[i:i+8]
         binary_string = ''.join(map(str, byte))
         decimal_number = int(binary_string, 2)
+        print(decimal_number)
         decimal_number_list.append(decimal_number)
         text = bytes(decimal_number_list)
-    
-    plaintext_bytes = text
-    text = binascii.b2a_base64(plaintext_bytes)
+        plaintext_bytes = text
+        text = binascii.b2a_base64(plaintext_bytes)
+        print(text)
     
     return text

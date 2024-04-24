@@ -22,19 +22,6 @@ PC_2_table = [
     [46, 42, 50, 36, 29, 32]
 ]
 
-# def generate_subkeys(key):
-#     compressed_key = [key[i-1] for row in PC_1_table for i in row]
-#     left_half = compressed_key[:28]
-#     right_half = compressed_key[28:]
-#     subkeys = []
-#     for i in range(4):
-#         left_half = left_half[1:] + [left_half[0]]
-#         right_half = right_half[1:] + [right_half[0]]
-#         subkey = [left_half[row-1] for row in PC_2_table[i]] + [right_half[row-1] for row in PC_2_table[i]]
-#         # subkeys.append(subkey)
-#         subkeys += subkey
-#     return subkeys
-
 def generate_subkeys(key):
     compressed_key = [key[i-1] for row in PC_1_table for i in row]
     left_half = compressed_key[:28]
@@ -46,7 +33,6 @@ def generate_subkeys(key):
         shift_bits = left_half + right_half
         subkey = [shift_bits[j-1] for row in PC_2_table for j in row]
         allsubkey.append(subkey)
-        
     return allsubkey
 
 # key = "thisis64"
