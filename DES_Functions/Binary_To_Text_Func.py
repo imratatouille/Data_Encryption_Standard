@@ -1,4 +1,3 @@
-
 def binary_to_text_ascii(Ciper_binary):
     plaintext_bytes = ''
     for i in range(0, len(Ciper_binary), 8):
@@ -10,9 +9,6 @@ def binary_to_text_ascii(Ciper_binary):
             
     return plaintext_bytes
 
-def binary_to_text_utf8():
-    print("hello, world")
-    
 def binary_to_text_utf16(Ciper_binary):
     decimal_number_list = []
     plaintext_bytes = []

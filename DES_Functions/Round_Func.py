@@ -1,5 +1,5 @@
-from Functions.Sbox_Func import s_box
-from Functions.Permutation_Func import permutation
+from .Sbox_Func import s_box
+from .Permutation_Func import permutation
 
 def round_Func(L_bits, R_bits, subkey):
     Left_bits = L_bits

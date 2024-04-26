@@ -1,5 +1,3 @@
-from Functions.String_To_Binary_Func import string_to_binary
-
 PC_1_table = [
     [57, 49, 41, 33, 25, 17, 9],
     [1, 58, 50, 42, 34, 26, 18],
@@ -23,6 +21,16 @@ PC_2_table = [
 ]
 
 def generate_subkeys(key):
+    
+    if len(key) == 64:
+        pass
+    elif len(key) < 64:
+        while len(key) < 64:
+            key.append(0)
+    elif len(key) > 64:
+        while len(key) == 64:
+            key.drop
+    
     compressed_key = [key[i-1] for row in PC_1_table for i in row]
     left_half = compressed_key[:28]
     right_half = compressed_key[28:]
@@ -39,14 +47,6 @@ def generate_subkeys(key):
 # bin_key = string_to_binary(key)
 # all_subkeys = generate_subkeys(bin_key)
 
-# if len(bin_key) == 64:
-#     print(" == 64")
-# elif len(bin_key) < 64:
-#     while len(bin_key) < 64:
-#         bin_key.append(0)
-#     print(" < 64")
-# elif len(bin_key) > 64:
-#     print(" > 64 ")
 
 # print(all_subkeys)
 # print(len(all_subkeys))
