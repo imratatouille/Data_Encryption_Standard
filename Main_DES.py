@@ -1,6 +1,6 @@
 from DES_Functions.Encryption_Func import encryption
 from DES_Functions.Decryption_Func import decryption
-from DES_Functions.Binary_To_Text_Func import binary_to_text_ascii, binary_to_text_utf16
+from DES_Functions.Binary_To_Text_Func import binary_to_text_ascii
 
 PT = input("write anything: ")
 # KEY = input("write Key(64 bit = 8 letters): ")
