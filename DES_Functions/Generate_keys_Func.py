@@ -42,11 +42,3 @@ def generate_subkeys(key):
         subkey = [shift_bits[j-1] for row in PC_2_table for j in row]
         allsubkey.append(subkey)
     return allsubkey
-
-# key = "thisis64"
-# bin_key = string_to_binary(key)
-# all_subkeys = generate_subkeys(bin_key)
-
-
-# print(all_subkeys)
-# print(len(all_subkeys))

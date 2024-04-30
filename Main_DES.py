@@ -3,7 +3,6 @@ from DES_Functions.Decryption_Func import decryption
 from DES_Functions.Binary_To_Text_Func import binary_to_text_ascii
 
 PT = input("write anything: ")
-# KEY = input("write Key(64 bit = 8 letters): ")
 KEY = "thisis64"
 
 Encrypt_Texts = []
